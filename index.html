@@ -88,6 +88,24 @@
     .sec-head{flex-direction:column;align-items:start}
     .how{padding:30px 22px}
   }
+  .book .cover{cursor:zoom-in}
+  .book button.read{all:unset;margin-top:auto;padding-top:10px;font-size:.88rem;font-weight:600;color:var(--sea);cursor:pointer}
+  .book button.read:hover{text-decoration:underline}
+  .book button.read:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+  .film .dl{display:inline-block;margin-top:12px;font-size:.86rem;font-weight:600;text-decoration:none}
+  .reader{position:fixed;inset:0;z-index:50;background:rgba(18,22,32,.97);display:none;flex-direction:column;align-items:center;justify-content:center;padding:56px 16px 20px}
+  .reader.open{display:flex}
+  .reader img{max-width:min(1200px,100%);max-height:calc(100vh - 130px);object-fit:contain;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.45);background:#fff}
+  .reader .bar{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:12px 18px;color:#e9e4da;font-size:.92rem}
+  .reader .bar b{font-family:Fraunces,serif;font-size:1.05rem;font-weight:600}
+  .reader button{background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:999px;cursor:pointer;font:inherit}
+  .reader .close{width:40px;height:40px;font-size:1.3rem}
+  .reader .nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.6rem}
+  .reader .prev{left:14px}.reader .next{right:14px}
+  .reader button:hover{background:rgba(255,255,255,.25)}
+  .reader button:disabled{opacity:.25;cursor:default}
+  .reader .count{margin-top:12px;color:#cfc8bb;font-size:.88rem}
+  @media (max-width:700px){.reader .nav{top:auto;bottom:10px;transform:none;width:46px;height:46px}.reader .count{margin-bottom:8px}}
 </style>
 </head>
 <body>
@@ -126,6 +144,7 @@
           <h3>Counting Luzzi in Marsaxlokk</h3>
           <p>An interactive counting film: each luzzu sails in, the numeral appears and the narrator counts in English, then Maltese. At the end the child counts along with a countdown before the reveal.</p>
           <div class="tags"><span class="tag">Maths · counting 1–10</span><span class="tag mt">English + Malti</span><span class="tag y">Interactive</span></div>
+          <a class="dl" href="media/counting-luzzi.mp4" download>Download MP4</a>
         </div>
       </article>
       <article class="film">
@@ -134,6 +153,7 @@
           <h3>Mario, Malta's School Tech Chief</h3>
           <p>A personalised story about the people who keep Maltese classrooms connected: Wi-Fi, tablets, assistive tech, online safety, and a live video call with a school in Gozo.</p>
           <div class="tags"><span class="tag">ICT in education</span><span class="tag">Personalised hero</span><span class="tag mt">Bonġu · Prosit</span></div>
+          <a class="dl" href="media/mario-tech-chief.mp4" download>Download MP4</a>
         </div>
       </article>
       <article class="film">
@@ -142,6 +162,7 @@
           <h3>Ġino l-ġurdien · Maltese voice-over</h3>
           <p>An existing NLA Maltese reader turned into a short film, read aloud page by page in Maltese.</p>
           <div class="tags"><span class="tag mt">Malti narration</span><span class="tag">Early reader</span></div>
+          <a class="dl" href="media/gino-maltese.mp4" download>Download MP4</a>
         </div>
       </article>
       <article class="film">
@@ -150,6 +171,7 @@
           <h3>Ġino l-ġurdien · music and captions</h3>
           <p>The same film with a music bed and on-screen text, for reading along in class.</p>
           <div class="tags"><span class="tag">Read-along</span><span class="tag">Captions</span></div>
+          <a class="dl" href="media/gino-music.mp4" download>Download MP4</a>
         </div>
       </article>
     </div>
@@ -160,84 +182,84 @@
   <div class="wrap">
     <div class="sec-head">
       <div><div class="eyebrow">Books</div><h2>Seven books, seven worlds</h2></div>
-      <p>Five maths books from counting to money and time, a tech-in-schools story, and a Maltese early reader. Each ends with a "Try it yourself" page. Full books open in the NLA reader for signed-in users.</p>
+      <p>Five maths books from counting to money and time, a tech-in-schools story, and a Maltese early reader. Each ends with a "Try it yourself" page. Every book can be read here in full: open one and turn the pages.</p>
     </div>
     <div class="books">
 
       <article class="book">
-        <img class="cover" src="img/luzzi-cover.jpg" alt="Cover: Ella and her nannu on the quay at Marsaxlokk with a painted luzzu">
+        <img class="cover" data-book="luzzi" src="img/luzzi-cover.jpg" alt="Cover: Ella and her nannu on the quay at Marsaxlokk with a painted luzzu">
         <div class="strip"><img src="img/luzzi-1.jpg" alt="" loading="lazy"><img src="img/luzzi-2.jpg" alt="" loading="lazy"><img src="img/luzzi-3.jpg" alt="" loading="lazy"></div>
         <div class="body">
           <div class="tags"><span class="tag">Level 1</span><span class="tag y">Gouache</span></div>
           <h3>Counting Luzzi in Marsaxlokk</h3>
           <p>Ella and Nannu Ġorġ count the colourful fishing boats coming home, one to ten. Every page shows exactly the number on it.</p>
-          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88BQJFWT2DVRD70MBMB2V62">Open in the NLA reader → <span>(sign-in)</span></a>
+          <button class="read" type="button" data-book="luzzi">Read the whole book → <span>(16 pages)</span></button>
         </div>
       </article>
 
       <article class="book">
-        <img class="cover" src="img/shapes-cover.jpg" alt="Cover: Luca and his mum on a Valletta street with green balconies">
+        <img class="cover" data-book="shapes" src="img/shapes-cover.jpg" alt="Cover: Luca and his mum on a Valletta street with green balconies">
         <div class="strip"><img src="img/shapes-1.jpg" alt="" loading="lazy"><img src="img/shapes-2.jpg" alt="" loading="lazy"><img src="img/shapes-3.jpg" alt="" loading="lazy"></div>
         <div class="body">
           <div class="tags"><span class="tag">Level 2</span><span class="tag y">Cut-paper collage</span></div>
           <h3>Luca's Shape Hunt in Valletta</h3>
           <p>A circle in a fountain, a rectangle in a balcony, a semicircle in a garden arch, eight points on a festa flag: shapes hiding all over the capital.</p>
-          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88C1KX1Y9AYJ2VB11JYG4N9">Open in the NLA reader → <span>(sign-in)</span></a>
+          <button class="read" type="button" data-book="shapes">Read the whole book → <span>(18 pages)</span></button>
         </div>
       </article>
 
       <article class="book">
-        <img class="cover" src="img/pastizzi-cover.jpg" alt="Cover: Maya and Zija Rita in a Rabat pastizzeria with a ginger cat">
+        <img class="cover" data-book="pastizzi" src="img/pastizzi-cover.jpg" alt="Cover: Maya and Zija Rita in a Rabat pastizzeria with a ginger cat">
         <div class="strip"><img src="img/pastizzi-1.jpg" alt="" loading="lazy"><img src="img/pastizzi-2.jpg" alt="" loading="lazy"><img src="img/pastizzi-3.jpg" alt="" loading="lazy"></div>
         <div class="body">
           <div class="tags"><span class="tag">Level 3</span><span class="tag y">Coloured pencil</span></div>
           <h3>Maya's Pastizzi Sums</h3>
           <p>Adding and taking away on a busy Saturday in Rabat: trays come out of the oven, customers buy, and Fenek the cat has his eye on the counter.</p>
-          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88C279XERD73C8TAQQN5MKX">Open in the NLA reader → <span>(sign-in)</span></a>
+          <button class="read" type="button" data-book="pastizzi">Read the whole book → <span>(16 pages)</span></button>
         </div>
       </article>
 
       <article class="book">
-        <img class="cover" src="img/festa-cover.jpg" alt="Cover: four children sharing bread at a village festa at night">
+        <img class="cover" data-book="festa" src="img/festa-cover.jpg" alt="Cover: four children sharing bread at a village festa at night">
         <div class="strip"><img src="img/festa-1.jpg" alt="" loading="lazy"><img src="img/festa-2.jpg" alt="" loading="lazy"><img src="img/festa-3.jpg" alt="" loading="lazy"></div>
         <div class="body">
           <div class="tags"><span class="tag">Level 5</span><span class="tag y">Digital painterly</span></div>
           <h3>Half for You, Half for Me at the Festa</h3>
           <p>Twins Kieran and Gaia learn halves and quarters by sharing ftira, qagħqa tal-għasel and qubbajt fairly under the festa lights.</p>
-          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88C2V117E1XTRXXPVV7TCBT">Open in the NLA reader → <span>(sign-in)</span></a>
+          <button class="read" type="button" data-book="festa">Read the whole book → <span>(16 pages)</span></button>
         </div>
       </article>
 
       <article class="book">
-        <img class="cover" src="img/gozo-cover.jpg" alt="Cover: Zak and Nanna Carmen in a Gozo square">
+        <img class="cover" data-book="gozo" src="img/gozo-cover.jpg" alt="Cover: Zak and Nanna Carmen in a Gozo square">
         <div class="strip"><img src="img/gozo-1.jpg" alt="" loading="lazy"><img src="img/gozo-2.jpg" alt="" loading="lazy"><img src="img/gozo-3.jpg" alt="" loading="lazy"></div>
         <div class="body">
           <div class="tags"><span class="tag">Level 6</span><span class="tag y">Flat vector</span></div>
           <h3>Zak and Nanna's Day in Gozo</h3>
           <p>Money and time on a day trip: catching the 9 o'clock ferry, working out change in euro, and reading the clock to get home.</p>
-          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88C3E5BERPQC67CNHWWKECZ">Open in the NLA reader → <span>(sign-in)</span></a>
+          <button class="read" type="button" data-book="gozo">Read the whole book → <span>(16 pages)</span></button>
         </div>
       </article>
 
       <article class="book">
-        <img class="cover" src="img/mario-cover.jpg" alt="Cover: Mario showing Leah and Kyle the classroom screen">
+        <img class="cover" data-book="mario" src="img/mario-cover.jpg" alt="Cover: Mario showing Leah and Kyle the classroom screen">
         <div class="strip"><img src="img/mario-1.jpg" alt="" loading="lazy"><img src="img/mario-2.jpg" alt="" loading="lazy"><img src="img/mario-3.jpg" alt="" loading="lazy"></div>
         <div class="body">
           <div class="tags"><span class="tag">Level 4</span><span class="tag y">Soft watercolour</span></div>
           <h3>Mario, Malta's School Tech Chief</h3>
           <p>When the classroom screen won't start, Mario shows Leah and Kyle the work behind a first-class digital classroom, from safe Wi-Fi to coding robots.</p>
-          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88TGXSVKW38MDD4HE4219P5">Open in the NLA reader → <span>(sign-in)</span></a>
+          <button class="read" type="button" data-book="mario">Read the whole book → <span>(16 pages)</span></button>
         </div>
       </article>
 
       <article class="book">
-        <img class="cover" src="img/gino-cover.jpg" alt="Ġino the mouse lying happily on a rug">
+        <img class="cover" data-book="gino" src="img/gino-cover.jpg" alt="Ġino the mouse lying happily on a rug">
         <div class="strip"><img src="img/gino-1.jpg" alt="" loading="lazy"><img src="img/gino-2.jpg" alt="" loading="lazy"><img src="img/gino-3.jpg" alt="" loading="lazy"></div>
         <div class="body">
           <div class="tags"><span class="tag">Level 2</span><span class="tag y">Soft pastel</span><span class="tag mt">Malti</span></div>
           <h3>Ġino l-ġurdien</h3>
           <p>A gentle Maltese early reader about all the things a little mouse loves to do at home.</p>
-          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M3S1G7YXKQV5HXE9ZYMDX7SQ">Open in the NLA reader → <span>(sign-in)</span></a>
+          <button class="read" type="button" data-book="gino">Read the whole book → <span>(18 pages)</span></button>
         </div>
       </article>
 
@@ -265,10 +287,49 @@
 
 <footer>
   <div class="wrap note">
-    <span>Made with the NLA eBook studio and Higgsfield. Illustrations and films are AI-generated.</span>
+    <span>Made with the NLA eBook studio and Higgsfield. Illustrations and films are AI-generated. Books © National Literacy Agency, Malta, shown here for demonstration only.</span>
     <span>Temporary showcase · online until 2 December 2026</span>
   </div>
 </footer>
 
+<div class="reader" id="reader" role="dialog" aria-modal="true" aria-label="Book reader">
+  <div class="bar"><b id="r-title"></b><button class="close" type="button" aria-label="Close">×</button></div>
+  <button class="nav prev" type="button" aria-label="Previous page">‹</button>
+  <img id="r-img" alt="">
+  <button class="nav next" type="button" aria-label="Next page">›</button>
+  <div class="count" id="r-count"></div>
+</div>
+<script>
+(() => {
+  const PAGES = {"luzzi": 16, "shapes": 18, "pastizzi": 16, "festa": 16, "gozo": 16, "mario": 16, "gino": 18};
+  const R = document.getElementById('reader'), img = document.getElementById('r-img'), cnt = document.getElementById('r-count'), ttl = document.getElementById('r-title');
+  const prev = R.querySelector('.prev'), next = R.querySelector('.next');
+  let book = null, n = 1, opener = null;
+  const src = (b, i) => `books/${b}/${String(i).padStart(2, '0')}.jpg`;
+  function show() {
+    img.src = src(book, n); img.alt = `${ttl.textContent}, page ${n}`;
+    cnt.textContent = (n === 1 ? `Cover · ${PAGES[book]} pages` : `Page ${n} of ${PAGES[book]}`) + ' · © National Literacy Agency, Malta · demonstration only';
+    prev.disabled = n === 1; next.disabled = n === PAGES[book];
+    if (n < PAGES[book]) new Image().src = src(book, n + 1);
+  }
+  function open(b, el) {
+    book = b; n = 1; opener = el;
+    ttl.textContent = el.closest('.book').querySelector('h3').textContent;
+    R.classList.add('open'); document.body.style.overflow = 'hidden'; show(); R.querySelector('.close').focus();
+  }
+  function close() { R.classList.remove('open'); document.body.style.overflow = ''; img.removeAttribute('src'); opener && opener.focus(); }
+  const go = d => { const m = n + d; if (m >= 1 && m <= PAGES[book]) { n = m; show(); } };
+  document.querySelectorAll('[data-book]').forEach(el => el.addEventListener('click', () => open(el.dataset.book, el)));
+  prev.onclick = () => go(-1); next.onclick = () => go(1); R.querySelector('.close').onclick = close;
+  R.addEventListener('click', e => { if (e.target === R) close(); });
+  document.addEventListener('keydown', e => {
+    if (!R.classList.contains('open')) return;
+    if (e.key === 'Escape') close(); else if (e.key === 'ArrowRight') go(1); else if (e.key === 'ArrowLeft') go(-1);
+  });
+  let x0 = null;
+  R.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  R.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1); x0 = null; });
+})();
+</script>
 </body>
 </html>
