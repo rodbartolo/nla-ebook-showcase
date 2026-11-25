@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>From prompt to picture book to film · NLA eBook studio showcase</title>
+<meta name="description" content="Seven illustrated children's books and four short films made with the NLA eBook studio and Higgsfield: Maltese maths stories, a tech-in-schools story and Ġino l-ġurdien.">
+<meta property="og:title" content="From prompt to picture book to film">
+<meta property="og:description" content="Seven illustrated Maltese children's books and four short films, made with the NLA eBook studio and Higgsfield.">
+<meta property="og:image" content="img/luzzi-cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1d2433; --soft:#5b6476; --line:#e6dfd2; --paper:#fbf7f0; --card:#fff;
+    --sea:#1f5aa6; --sun:#f3b52f; --red:#c8382c; --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img,video{display:block;max-width:100%}
+  a{color:var(--sea)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.12;margin:0;letter-spacing:-.01em}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+
+  /* hero */
+  header.hero{padding:72px 0 40px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(2.3rem,5vw,3.9rem);font-weight:700;margin:14px 0 18px}
+  .hero h1 em{font-style:normal;color:var(--sea)}
+  .hero p.lead{font-size:1.15rem;color:var(--soft);max-width:34em;margin:0 0 26px}
+  .stats{display:flex;gap:28px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+  .stats li{font-size:.9rem;color:var(--soft)}
+  .stats b{display:block;font:700 2rem/1 Fraunces,serif;color:var(--ink)}
+  .mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;transform:rotate(-2deg)}
+  .mosaic img{border-radius:12px;aspect-ratio:4/3;object-fit:cover;box-shadow:0 10px 30px rgba(29,36,51,.14)}
+  .mosaic img:nth-child(2),.mosaic img:nth-child(5){transform:translateY(18px)}
+
+  /* sections */
+  section{padding:56px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
+  .sec-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-top:8px}
+  .sec-head p{color:var(--soft);max-width:30em;margin:0}
+
+  /* films */
+  .films{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+  .film{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .film video{width:100%;aspect-ratio:4/3;background:#000;object-fit:contain}
+  .film .meta{padding:18px 22px 22px}
+  .film h3{font-size:1.35rem}
+  .film p{margin:6px 0 0;color:var(--soft);font-size:.95rem}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .tag{font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:99px;background:#eef3fb;color:var(--sea)}
+  .tag.mt{background:#fdeceb;color:var(--red)}
+  .tag.y{background:#fdf4dc;color:#8a6200}
+
+  /* books */
+  .books{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px}
+  .book{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+  .book .cover{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .book .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px;background:#f3eee4}
+  .book .strip img{aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+  .book .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .book h3{font-size:1.25rem}
+  .book p{margin:0;color:var(--soft);font-size:.93rem}
+  .book .read{margin-top:auto;padding-top:10px;font-size:.88rem;font-weight:600;text-decoration:none}
+  .book .read span{color:var(--soft);font-weight:400}
+
+  /* how */
+  .how{background:var(--ink);color:#e9ecf3;border-radius:28px;padding:48px}
+  .how .eyebrow{color:var(--sun)}
+  .how h2{color:#fff;font-size:clamp(1.8rem,3.4vw,2.5rem);margin:8px 0 28px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s;margin:0;padding:0;list-style:none}
+  .steps li{counter-increment:s;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:20px}
+  .steps li::before{content:counter(s,decimal-leading-zero);font:700 1.1rem Fraunces,serif;color:var(--sun)}
+  .steps h3{font-size:1.1rem;color:#fff;margin:6px 0}
+  .steps p{margin:0;font-size:.92rem;color:#b9c0cf}
+
+  footer{padding:40px 0 60px;color:var(--soft);font-size:.88rem}
+  footer .note{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+  @media (max-width:900px){
+    .hero-grid,.films,.steps{grid-template-columns:1fr}
+    .mosaic{transform:none}
+    .sec-head{flex-direction:column;align-items:start}
+    .how{padding:30px 22px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">NLA eBook studio · showcase</div>
+      <h1>From a one-line idea to a <em>picture book</em> and a <em>film</em>.</h1>
+      <p class="lead">Seven illustrated children's books written for Maltese classrooms, each with its own hero, setting and art style, and four short films made from their pages. Every book and film below was produced end to end with the eBook studio and Higgsfield.</p>
+      <ul class="stats">
+        <li><b>7</b>illustrated books</li>
+        <li><b>4</b>short films</li>
+        <li><b>7</b>art styles</li>
+        <li><b>EN + MT</b>narration</li>
+      </ul>
+    </div>
+    <div class="mosaic" aria-hidden="true">
+      <img src="img/luzzi-cover.jpg" alt=""><img src="img/festa-1.jpg" alt=""><img src="img/shapes-3.jpg" alt="">
+      <img src="img/gino-3.jpg" alt=""><img src="img/mario-2.jpg" alt=""><img src="img/gozo-2.jpg" alt="">
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="films">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Films</div><h2>Books that move and speak</h2></div>
+      <p>The book's own illustrations are animated with Higgsfield (Kling), scored with generated music and narrated, with captions burned in, so every frame stays on-model.</p>
+    </div>
+    <div class="films">
+      <article class="film">
+        <video controls preload="none" playsinline poster="media/counting-luzzi.jpg"><source src="media/counting-luzzi.mp4" type="video/mp4"></video>
+        <div class="meta">
+          <h3>Counting Luzzi in Marsaxlokk</h3>
+          <p>An interactive counting film: each luzzu sails in, the numeral appears and the narrator counts in English, then Maltese. At the end the child counts along with a countdown before the reveal.</p>
+          <div class="tags"><span class="tag">Maths · counting 1–10</span><span class="tag mt">English + Malti</span><span class="tag y">Interactive</span></div>
+        </div>
+      </article>
+      <article class="film">
+        <video controls preload="none" playsinline poster="media/mario-tech-chief.jpg"><source src="media/mario-tech-chief.mp4" type="video/mp4"></video>
+        <div class="meta">
+          <h3>Mario, Malta's School Tech Chief</h3>
+          <p>A personalised story about the people who keep Maltese classrooms connected: Wi-Fi, tablets, assistive tech, online safety, and a live video call with a school in Gozo.</p>
+          <div class="tags"><span class="tag">ICT in education</span><span class="tag">Personalised hero</span><span class="tag mt">Bonġu · Prosit</span></div>
+        </div>
+      </article>
+      <article class="film">
+        <video controls preload="none" playsinline poster="media/gino-maltese.jpg"><source src="media/gino-maltese.mp4" type="video/mp4"></video>
+        <div class="meta">
+          <h3>Ġino l-ġurdien · Maltese voice-over</h3>
+          <p>An existing NLA Maltese reader turned into a short film, read aloud page by page in Maltese.</p>
+          <div class="tags"><span class="tag mt">Malti narration</span><span class="tag">Early reader</span></div>
+        </div>
+      </article>
+      <article class="film">
+        <video controls preload="none" playsinline poster="media/gino-music.jpg"><source src="media/gino-music.mp4" type="video/mp4"></video>
+        <div class="meta">
+          <h3>Ġino l-ġurdien · music and captions</h3>
+          <p>The same film with a music bed and on-screen text, for reading along in class.</p>
+          <div class="tags"><span class="tag">Read-along</span><span class="tag">Captions</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="books">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Books</div><h2>Seven books, seven worlds</h2></div>
+      <p>Five maths books from counting to money and time, a tech-in-schools story, and a Maltese early reader. Each ends with a "Try it yourself" page. Full books open in the NLA reader for signed-in users.</p>
+    </div>
+    <div class="books">
+
+      <article class="book">
+        <img class="cover" src="img/luzzi-cover.jpg" alt="Cover: Ella and her nannu on the quay at Marsaxlokk with a painted luzzu">
+        <div class="strip"><img src="img/luzzi-1.jpg" alt="" loading="lazy"><img src="img/luzzi-2.jpg" alt="" loading="lazy"><img src="img/luzzi-3.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <div class="tags"><span class="tag">Level 1</span><span class="tag y">Gouache</span></div>
+          <h3>Counting Luzzi in Marsaxlokk</h3>
+          <p>Ella and Nannu Ġorġ count the colourful fishing boats coming home, one to ten. Every page shows exactly the number on it.</p>
+          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88BQJFWT2DVRD70MBMB2V62">Open in the NLA reader → <span>(sign-in)</span></a>
+        </div>
+      </article>
+
+      <article class="book">
+        <img class="cover" src="img/shapes-cover.jpg" alt="Cover: Luca and his mum on a Valletta street with green balconies">
+        <div class="strip"><img src="img/shapes-1.jpg" alt="" loading="lazy"><img src="img/shapes-2.jpg" alt="" loading="lazy"><img src="img/shapes-3.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <div class="tags"><span class="tag">Level 2</span><span class="tag y">Cut-paper collage</span></div>
+          <h3>Luca's Shape Hunt in Valletta</h3>
+          <p>A circle in a fountain, a rectangle in a balcony, a semicircle in a garden arch, eight points on a festa flag: shapes hiding all over the capital.</p>
+          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88C1KX1Y9AYJ2VB11JYG4N9">Open in the NLA reader → <span>(sign-in)</span></a>
+        </div>
+      </article>
+
+      <article class="book">
+        <img class="cover" src="img/pastizzi-cover.jpg" alt="Cover: Maya and Zija Rita in a Rabat pastizzeria with a ginger cat">
+        <div class="strip"><img src="img/pastizzi-1.jpg" alt="" loading="lazy"><img src="img/pastizzi-2.jpg" alt="" loading="lazy"><img src="img/pastizzi-3.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <div class="tags"><span class="tag">Level 3</span><span class="tag y">Coloured pencil</span></div>
+          <h3>Maya's Pastizzi Sums</h3>
+          <p>Adding and taking away on a busy Saturday in Rabat: trays come out of the oven, customers buy, and Fenek the cat has his eye on the counter.</p>
+          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88C279XERD73C8TAQQN5MKX">Open in the NLA reader → <span>(sign-in)</span></a>
+        </div>
+      </article>
+
+      <article class="book">
+        <img class="cover" src="img/festa-cover.jpg" alt="Cover: four children sharing bread at a village festa at night">
+        <div class="strip"><img src="img/festa-1.jpg" alt="" loading="lazy"><img src="img/festa-2.jpg" alt="" loading="lazy"><img src="img/festa-3.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <div class="tags"><span class="tag">Level 5</span><span class="tag y">Digital painterly</span></div>
+          <h3>Half for You, Half for Me at the Festa</h3>
+          <p>Twins Kieran and Gaia learn halves and quarters by sharing ftira, qagħqa tal-għasel and qubbajt fairly under the festa lights.</p>
+          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88C2V117E1XTRXXPVV7TCBT">Open in the NLA reader → <span>(sign-in)</span></a>
+        </div>
+      </article>
+
+      <article class="book">
+        <img class="cover" src="img/gozo-cover.jpg" alt="Cover: Zak and Nanna Carmen in a Gozo square">
+        <div class="strip"><img src="img/gozo-1.jpg" alt="" loading="lazy"><img src="img/gozo-2.jpg" alt="" loading="lazy"><img src="img/gozo-3.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <div class="tags"><span class="tag">Level 6</span><span class="tag y">Flat vector</span></div>
+          <h3>Zak and Nanna's Day in Gozo</h3>
+          <p>Money and time on a day trip: catching the 9 o'clock ferry, working out change in euro, and reading the clock to get home.</p>
+          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88C3E5BERPQC67CNHWWKECZ">Open in the NLA reader → <span>(sign-in)</span></a>
+        </div>
+      </article>
+
+      <article class="book">
+        <img class="cover" src="img/mario-cover.jpg" alt="Cover: Mario showing Leah and Kyle the classroom screen">
+        <div class="strip"><img src="img/mario-1.jpg" alt="" loading="lazy"><img src="img/mario-2.jpg" alt="" loading="lazy"><img src="img/mario-3.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <div class="tags"><span class="tag">Level 4</span><span class="tag y">Soft watercolour</span></div>
+          <h3>Mario, Malta's School Tech Chief</h3>
+          <p>When the classroom screen won't start, Mario shows Leah and Kyle the work behind a first-class digital classroom, from safe Wi-Fi to coding robots.</p>
+          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M88TGXSVKW38MDD4HE4219P5">Open in the NLA reader → <span>(sign-in)</span></a>
+        </div>
+      </article>
+
+      <article class="book">
+        <img class="cover" src="img/gino-cover.jpg" alt="Ġino the mouse lying happily on a rug">
+        <div class="strip"><img src="img/gino-1.jpg" alt="" loading="lazy"><img src="img/gino-2.jpg" alt="" loading="lazy"><img src="img/gino-3.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <div class="tags"><span class="tag">Level 2</span><span class="tag y">Soft pastel</span><span class="tag mt">Malti</span></div>
+          <h3>Ġino l-ġurdien</h3>
+          <p>A gentle Maltese early reader about all the things a little mouse loves to do at home.</p>
+          <a class="read" href="https://nlaebook.abcnow.xyz/projects/01M3S1G7YXKQV5HXE9ZYMDX7SQ">Open in the NLA reader → <span>(sign-in)</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="how">
+      <div class="eyebrow">How it works</div>
+      <h2>One pipeline, from brief to classroom film</h2>
+      <ol class="steps">
+        <li><h3>Brief and level</h3><p>A short idea becomes a 14-page plan pitched at the right NLA reading level, with Maltese places, food, words and names built in.</p></li>
+        <li><h3>Locked look</h3><p>An art style is chosen per book, and character portraits and place studies are locked so every page draws the same hero.</p></li>
+        <li><h3>Story and pictures</h3><p>Prose is written in one pass and each page is illustrated and reviewed by an AI art judge for style and consistency.</p></li>
+        <li><h3>Checked for learning</h3><p>Maths pages are checked by eye: exact counts, equal halves and quarters, correct clock faces and change.</p></li>
+        <li><h3>Exports</h3><p>The finished book ships as PDF, EPUB and an online reader, with a "Try it yourself" question on the last page.</p></li>
+        <li><h3>Film</h3><p>Pages are animated with Higgsfield, scored, and narrated in English and Maltese, then cut with captions and on-screen numbers.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap note">
+    <span>Made with the NLA eBook studio and Higgsfield. Illustrations and films are AI-generated.</span>
+    <span>Temporary showcase · online until 2 December 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

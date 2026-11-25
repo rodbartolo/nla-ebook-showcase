@@ -1,0 +1,31 @@
+name: Take the showcase offline
+# Backup takedown: from 2 December 2026 the site files are replaced by an empty commit,
+# so GitHub Pages has nothing left to serve. The primary takedown (Pages off + repo private)
+# runs from the owner's machine on the same date.
+on:
+  schedule:
+    - cron: "15 17 * * *"   # daily, 17:15 UTC (18:15 in Malta)
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  takedown:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the date
+        id: due
+        run: |
+          if [ "$(date -u +%Y%m%d)" -ge 20261202 ]; then echo "due=yes" >> "$GITHUB_OUTPUT"; else echo "Not yet: offline from 2026-12-02"; fi
+      - uses: actions/checkout@v4
+        if: steps.due.outputs.due == 'yes'
+      - name: Replace everything with an empty site
+        if: steps.due.outputs.due == 'yes'
+        run: |
+          git config user.name "showcase-takedown"
+          git config user.email "showcase-takedown@users.noreply.github.com"
+          git checkout --orphan offline
+          git rm -rf --quiet .
+          printf '# Showcase ended\n\nThis temporary showcase went offline on 2 December 2026.\n' > README.md
+          git add README.md
+          git commit -m "Take the showcase offline (scheduled)"
+          git push --force origin offline:main
